@@ -4,6 +4,7 @@
 
 ### Краткое описание
 Сервис предоставляет возможность вести календарь событий: добавлять, редактировать, удалять.
+Время используется в формате UTC
 
 #### Ресурс системы
 
@@ -11,24 +12,15 @@
 
 ```
 {
-    "events": [
-    {
-        "event": ["Feed my cat"],
-        "event_id":123,
-        "rase-at": "YYYY-MM-DD HH:MM:SS",
-        "remind-at": "YYYY-MM-DD HH:MM:SS",
-    },
-    ...
-    {  
-        "event": ["Wash my car"],
-        "event_id":124,
-        "rase-at": "YYYY-MM-DD HH:MM:SS",
-        "remind-at": "YYYY-MM-DD HH:MM:SS",
-    },
-    ...
-    ]
+    "event": "Go to gim",
+    "event_id": "GUID"
+    "rase_at": "YYYY-MM-DD HH:MM:SS",
+    "remind_at": "YYYY-MM-DD HH:MM:SS",
 }
 ```
+rase_at - время, в которое событие произойдет
+remind_at - время, в которе надо напомнить о предсоящем событии
+
 ### Запросы в систему
 
 #### GET /calendar-api/events/(date)
@@ -61,7 +53,7 @@
 }
 ```
 
-#### DELETE /calendar-api/events/(date)
+#### DELETE /calendar-api/events/(event_id)
 
 Удалить событие в календаре
 
