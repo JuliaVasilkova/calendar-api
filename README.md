@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #calendar-api
+=======
+# calendar-api
+>>>>>>> origin/master
 
 ## Сервис "Календарь"
 
