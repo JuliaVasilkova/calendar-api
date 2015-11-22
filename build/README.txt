@@ -25,4 +25,17 @@ apt-get autoremove --purge -y debhelper automake1.9 pkg-config autotools-dev aut
 
 sudo apt-get install nginx
 
+В этом файле 
+/etc/nginx/sites-available/default
+необходимо прописать следуюшие настройки сервера nginx
+
+server {
+  listen 80;
+
+  location / {
+    include fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME $fastcgi_script_name;
+    fastcgi_pass unix:/tmp/fastcgi_daemon.sock;
+}
+}
 
