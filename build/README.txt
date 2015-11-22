@@ -39,3 +39,11 @@ server {
 }
 }
 
+Перезапустим сервер с новыми настройками
+sudo service nginx restart
+
+И запустим наше приложение указав в --config= пусть к HelloFastCGI.conf
+
+fastcgi-daemon2 --config=HelloFastCGI.conf
+
+Теперь по пути localhost/hellofastcgi в браузере будет высвечиваться Hello world!
