@@ -1,0 +1,3 @@
+Необходимо собрать наш исходник в библиотеку динамической линковки
+
+g++ HelloFastCGI.cpp -O2 -fPIC -lfastcgi-daemon2 -shared -o libHelloFastCGI.so
