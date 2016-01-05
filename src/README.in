@@ -1,3 +1,3 @@
 Соберем наш исходник
 
-g++ HelloFastCGI.cpp -O2 -fPIC -lfastcgi-daemon2 -shared -o libHelloFastCGI.so
+g++ event.cpp db_event.cpp database.cpp database_create.cpp CalendarFactory.cpp -Wall -std=c++11 -O2 -fPIC -lfastcgi-daemon2 -shared -o libCalendarFastCGI.so
