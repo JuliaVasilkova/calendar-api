@@ -48,11 +48,11 @@ http GET http://localhost/events
 
 Создать событие в календаре
 
-##Пример запроса в систему
+####Пример запроса в систему
 
 http PUT http://localhost/events event_name=important_event event_date="2016-01-12 19:40:01"
 
-##Пример ответа
+####Пример ответа
 
 ```
 {
@@ -66,11 +66,11 @@ http PUT http://localhost/events event_name=important_event event_date="2016-01-
 
 Получить событие по имени
 
-##Пример запроса в систему
+####Пример запроса в систему
 
 http GET http://localhost/events/important_event
 
-##Пример ответа
+####Пример ответа
 
 ```
 {
