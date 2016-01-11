@@ -1,0 +1,16 @@
+
+Restart nginx with configs given in HelloFastCGI README
+
+Compile project with
+
+    make
+
+Start service with 
+
+    fastcgi-daemon2 --config=HelloFastCGI.conf
+
+and check it with
+
+    http PUT http://localhost/events event_name=important_event event_date="2016-01-12 19:40:01"
+    http GET http://localhost/events  
+    etc...
