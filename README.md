@@ -4,65 +4,78 @@
 ## Сервис "Календарь"
 
 ### Краткое описание
-Сервис предоставляет возможность вести календарь событий: добавлять, редактировать, удалять.
+Сервис предоставляет возможность вести календарь событий: добавлять и просматривать события.
 
 #### Ресурс системы
 
-Ресурс системы - это список в календаре, вида:
+Ресурс системы - это событие в календаре, вида:
 
 ```
 {
-    "event": "Go to gim",
-    "event_id": "GUID"
+    "eventID": "Go to gim",
     "rase_at": "YYYY-MM-DD HH:MM:SS",
-    "remind_at": "YYYY-MM-DD HH:MM:SS",
-    "time_zone": '+00:00'
 }
 ```
 rase_at - время, в которое событие произойдет
-remind_at - время, в которе надо напомнить о предсоящем событии
 
 ### Запросы в систему
 
-#### GET /calendar-api/Calendar_id/events/event_id
+#### GET hostname/events
 
-Получить список событий на определенную дату
+Получить список событий на сегодняшнюю дату
 
+####Пример запроса в систему
+
+http GET http://localhost/events
+
+####Пример ответа
 ```
 {
-    "events": [
+    "today_events": [
         {
-            "event": "I have to do smth at this time",
-            "event_id": "GUID"
-            "rase_at": "YYYY-MM-DD HH:MM:SS",
-            "remind_at": "YYYY-MM-DD HH:MM:SS",
+            "event_name": "important_event",
+            "event_date": "2016-01-12 21:40:01"
         },
-        ...
+        {
+            "event_name": "important_event",
+            "event_date": "2016-01-12 19:40:01"
+        }
     ]
 }
 ```
-#### POST /calendar-api/Calendar_id/events/event_id
+
+#### PUT hostname/events/ "event_info"
 
 Создать событие в календаре
 
-```
-{
-    "event": "Go to gim",
-    "event_id": "GUID"
-    "rase_at": "YYYY-MM-DD HH:MM:SS",
-    "remind_at": "YYYY-MM-DD HH:MM:SS",
-}
-```
+##Пример запроса в систему
 
-#### DELETE /calendar-api/Calendar_id/events/event_id
+http PUT http://localhost/events event_name=important_event event_date="2016-01-12 19:40:01"
 
-Удалить событие в календаре
+##Пример ответа
 
 ```
 {
-    "event": "Go to gim",
-    "event_id": "GUID"
-    "rase_at": "YYYY-MM-DD HH:MM:SS",
-    "remind_at": "YYYY-MM-DD HH:MM:SS",
+    "event_date": "2016-01-12 19:40:01", 
+    "event_name": "important_event"
 }
+
+```
+
+#### Get hostname/events/event_name
+
+Получить событие по имени
+
+##Пример запроса в систему
+
+http GET http://localhost/events/important_event
+
+##Пример ответа
+
+```
+{
+    "event_date": "2016-01-12 21:40:01", 
+    "event_name": "important_event"
+}
+
 ```
