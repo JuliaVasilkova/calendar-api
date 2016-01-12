@@ -1,1 +1,8 @@
-http://loadosophia.org/examples/456680/#tab=tabSummary
+load.ini
+
+rps_schedule=line(1, 10000, 10m)
+uris =  /events
+        /events/event_1
+        /events/event_9
+
+https://loadosophia.org/gui/458435/#tab=tabTimelines
